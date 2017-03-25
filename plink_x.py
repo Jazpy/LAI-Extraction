@@ -25,7 +25,7 @@ for ind in ids:
     bed_path = './AncestrySplit/AFR-AFR/' + ind + '_AFR-AFR.bed'
 
     # String for output path
-    out_path = './AFR_EXTRACTED_X/' + ind + str(sys.argv[1]) + '_AFR-AFR_X'
+    out_path = './AFR_EXTRACTED_X/' + ind + '_AFR-AFR_X'
 
     # System call to plink
     subprocess.call(['plink', '--noweb', '--vcf', chro_path, '--keep', fam_path,

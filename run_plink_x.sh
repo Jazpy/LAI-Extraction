@@ -1,8 +1,8 @@
 #!/bin/bash
 #$ -b y
 #$ -w e
-#$ -e ./logs/err
-#$ -o ./logs/std
+#$ -e ./logs_x/err
+#$ -o ./logs_x/std
 #$ -N extract_AFR_X  # job's name
 
 # run the job in the current working directory
