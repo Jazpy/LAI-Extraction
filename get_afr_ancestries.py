@@ -5,7 +5,7 @@ import string
 import glob
 
 # Get all .bed filenames
-files = glob.glob('./*.bed')
+files = glob.glob('./PopPhased/*.bed')
 
 # Iterate over all files
 for curr in files:
@@ -16,7 +16,7 @@ for curr in files:
         f.close()
 
         # AFR output file: <Individual ID>_<Chromosome>_final_AFR.bed
-        out_afr = open('AncestrySplit/' + curr[:17] + '_AFR.bed', 'w')
+        out_afr = open('./AncestrySplit/' + curr[:17] + '_AFR.bed', 'w')
 
         # Generate splits
         for line in lines:
