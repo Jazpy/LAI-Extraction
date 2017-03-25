@@ -10,9 +10,14 @@ out = open('./individuals', 'w')
 # Iterate over all files with an unique ID
 i = 0
 while(i < len(files)):
-        # Write the individual's ID to out
-        out.write(files[i][50 : 57] + '\n')
-        # Skip over this individual's other chromosome
-        i = i + 2
+
+    # Eliminate the "./PopPhased/" prefix
+    curr_line = files[i][12:]
+    # Split on first '_'
+    curr_line = curr_line.split("_")[0]
+    # Write the individual's ID to out
+    out.write(curr_line + '\n')
+    # Skip over this individual's other chromosome
+    i = i + 2
 
 out.close()

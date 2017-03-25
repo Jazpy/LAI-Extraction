@@ -10,20 +10,24 @@ files = glob.glob('./PopPhased/*.bed')
 # Iterate over all files
 for curr in files:
 
-        # Open file and read into memory
-        f = open(curr)
-        lines = f.readlines()
-        f.close()
+    # Open file and read into memory
+    f = open(curr)
+    lines = f.readlines()
+    f.close()
 
-        # AFR output file: <Individual ID>_<Chromosome>_final_AFR.bed
-        out_afr = open('./AncestrySplit/' + curr[:17] + '_AFR.bed', 'w')
+    # Get the individual and chromosome without the "./PopPhased/" prefix
+    curr_file = curr[12:]
+    # Exclude the filename from curr_file
+    curr_file = curr_file.split(".")[0]
+    # AFR output file: <Individual ID>_<Chromosome>_final_AFR.bed
+    out_afr = open('./AncestrySplit/' + curr_file + '_AFR.bed', 'w')
 
-        # Generate splits
-        for line in lines:
+    # Generate splits
+    for line in lines:
 
-                curr_anc = line.split()[3].strip()
+        curr_anc = line.split()[3].strip()
 
-                if(curr_anc == 'AFR'):
-                        out_afr.write(line)
+        if(curr_anc == 'AFR'):
+            out_afr.write(line)
 
-        out_afr.close()
+    out_afr.close()
